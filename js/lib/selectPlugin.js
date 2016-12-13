@@ -31,15 +31,19 @@
             var $valueWrapper = $('<div class="' + cssClasses.value + '"></div>')
                 .appendTo($selectWrapper);
 
-            $('<span class="' + cssClasses.default + '"></span>')
-            .text(that.options.defaultText)
-            .appendTo($valueWrapper);
+            $valueWrapper
+                .text(that.options.defaultText)
+                .attr('title', that.options.defaultText)
+                .addClass(cssClasses.default);
 
             $selectWrapper.on('click', function () {
                 if (that.isEnabled) {
                     that.show($selectWrapper, options, function (newValue) {
                         $element.val(newValue).trigger('change');
-                        $($valueWrapper).text(newValue);
+                        $($valueWrapper)
+                            .text(newValue)
+                            .attr('title', newValue)
+                            .removeClass(cssClasses.default);
                         $selectWrapper.focus();
                     });
                 }
@@ -120,8 +124,9 @@
         refresh: function () {
             var $element = $(this.element);
             $element.val(this.options.defaultText);
-            $('span', $element.parent('.' + cssClasses.value))
+			$('.' + cssClasses.value, $element.parent('.' + cssClasses.wrapper))
                 .text(this.options.defaultText)
+                .attr('title', this.options.defaultText)
                 .addClass(cssClasses.default);
         },
         updateValue: function (selectedText) {
@@ -130,6 +135,7 @@
                 $element.val(selectedText);
                 $('.' + cssClasses.value, $element.parent('.' + cssClasses.wrapper))
                     .text(selectedText)
+                    .attr('title', selectedText)
                     .removeClass(cssClasses.default);
             }
         },
