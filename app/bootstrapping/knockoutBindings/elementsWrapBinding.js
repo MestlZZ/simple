@@ -32,7 +32,7 @@
 
         $('table', $element).each(function (index, table) {
             var $table = $(table),
-                $wrapper = $(tableWrapper).css('text-align', $table.attr('align'));
+                $wrapper = $(tableWrapper).css('float', $table.attr('align'));
             $table.attr('align', 'center');
             $table.wrap($wrapper);
         });
