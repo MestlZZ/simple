@@ -1,4 +1,4 @@
-﻿<section id="content" class="question unselectable" data-bind="keyDown: { handlers: { 37: goPrevious, 39: goNext } }">
+﻿<section id="content" class="question unselectable" data-bind="keyDown: { 37: { handler: goPrevious }, 39: { handler: goNext } }">
     <div>
         <header class="page-header">
             <div class="navigation-home-link-wrapper" data-bind="click: backToSections">

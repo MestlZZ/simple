@@ -14,7 +14,7 @@
     <!-- /ko -->
     <!-- ko ifnot: isPreview -->
     <ul class="question-answers-list" data-bind="foreach: answers">
-        <li class="checkbox" data-bind="click: $parent.checkItem.bind($parent), keyDown: { handlers: { 32: $parent.checkItem.bind($parent), 13: $parent.checkItem.bind($parent) } }, css: { checked: isChecked(), enabled: !$parent.isAnswered()}, attr: { tabindex: $parent.isAnswered() ? '-1' : '0' }">
+        <li class="checkbox" data-bind="click: $parent.checkItem.bind($parent), keyDown: { 32: { handler: $parent.checkItem.bind($parent) }, 13: { handler: $parent.checkItem.bind($parent) } }, css: { checked: isChecked(), enabled: !$parent.isAnswered()}, attr: { tabindex: $parent.isAnswered() ? '-1' : '0' }">
             <span class="checkbox-icon-wrapper">
                 <button tabindex="-1" class="checkbox-icon" data-bind="css: { checked: isChecked() }"></button>
             </span>

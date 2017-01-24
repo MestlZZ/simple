@@ -7,7 +7,7 @@
                     <div data-bind="imageLoader: { isLoaded: isLoaded, imageUrl: imageUrl}">
                     </div>
                     <div class="overlay-close-button-holder" data-bind="if: isLoaded">
-                        <a tabindex="0" class="overlay-close-button" data-bind="click: closePreview, hasFocus: isVisible, submitOnEnter, keyDown: { handlers: { 27: closePreview } }">&nbsp;</a>
+                        <a tabindex="0" class="overlay-close-button" data-bind="click: closePreview, hasFocus: isVisible, submitOnEnter, keyDown: { 27: { handler: closePreview } }">&nbsp;</a>
                     </div>
                     <!--ko ifnot:isLoaded-->
                     <div class="loader-image"></div>

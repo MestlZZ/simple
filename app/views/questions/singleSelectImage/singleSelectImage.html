@@ -8,7 +8,7 @@
     <ul class="single-select-image" data-bind="foreach: answers, css:{canHover:canHover}">
         <li class="select-image" data-bind="css: { checked: id == $parent.checkedAnswerId(), enabled: !$parent.isAnswered() }">
             <div class="select-image-wrapper">
-                <div tabindex="0" class="preview-thumbnail" data-bind="click: $parent.checkItem.bind($parent), keyDown: { handlers: { 32: $parent.checkItem.bind($parent), 13: $parent.checkItem.bind($parent) } }, attr: { tabindex: $parent.isAnswered() ? '-1' : '0' }">   
+                <div tabindex="0" class="preview-thumbnail" data-bind="click: $parent.checkItem.bind($parent), keyDown: { 32: { handler: $parent.checkItem.bind($parent) }, 13: { handler: $parent.checkItem.bind($parent) } }, attr: { tabindex: $parent.isAnswered() ? '-1' : '0' }">   
                     <img class="thumbnail" data-bind="attr:{'data-image': image, src: image + '?height=200&amp;width=250&amp;scaleBySmallerSide=true' }">
                 </div>
                 <div class="preview-button-holder">

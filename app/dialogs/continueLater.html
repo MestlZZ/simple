@@ -1,4 +1,4 @@
-<section class="popup-layout" data-bind="scrollbar: { checkDOMChanges: true }, keyDown: { handlers: { 27: close } }">
+<section class="popup-layout" data-bind="scrollbar: { checkDOMChanges: true }, keyDown: { 27: { handler: close } }">
     <div class="popup">
         <span class="close-btn" data-bind="click: close"></span>
         <!-- ko ifnot: progressStorageActivated -->

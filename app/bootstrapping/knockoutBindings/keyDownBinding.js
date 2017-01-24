@@ -2,15 +2,21 @@ define(function () {
 
     ko.bindingHandlers.keyDown = {
         init: function (element, valueAccessor, allBindings, viewModel) {
-            var value = valueAccessor();
-            var handlers = value.handlers;
+            var codes = valueAccessor();
 
             $(element).bind('keydown', function (event) {
-                if (_.isFunction(handlers[event.keyCode])) {
-                    handlers[event.keyCode](viewModel);
+                if(codes.hasOwnProperty(event.keyCode)){
+                    if (_.isFunction(codes[event.keyCode].handler)) {
+                        codes[event.keyCode].handler(viewModel);
+                    }
 
-                    event.preventDefault();
-                    event.stopPropagation();
+                    if(!codes[event.keyCode].hasOwnProperty('preventDefault') || codes[event.keyCode].preventDefault) {
+                        event.preventDefault();
+                    }
+
+                    if(!codes[event.keyCode].hasOwnProperty('stopPropagation') || codes[event.keyCode].stopPropagation) {                        
+                        event.stopPropagation();
+                    }                    
                 }
             });
         }

@@ -15,7 +15,7 @@
             </header>
             <ul class="tree-of-content-items" data-bind="foreach: children">
                 <li class="tree-of-content-section-item" data-bind="css:{ expanded : isExpanded, active: hasActiveQuestion }">
-                    <div class="tree-of-content-section-title-wrapper" data-bind="click: toggleIsExpanded.bind($data), keyDown: { handlers: { 13: toggleIsExpanded.bind($data) } }, attr: { tabindex: $parent.isExpanded() ? '0' : '-1' }">
+                    <div class="tree-of-content-section-title-wrapper" data-bind="click: toggleIsExpanded.bind($data), keyDown: { 13: { handler: toggleIsExpanded.bind($data) } }, attr: { tabindex: $parent.isExpanded() ? '0' : '-1' }">
                         <i class="tree-of-content-section-title-icon material-icons" data-bind="text: isExpanded() ? '&#xE313;' : '&#xE315;', localize: { title: isExpanded() ? '[collapse]' : '[expand]'}"></i>
                         <div class="tree-of-content-section-title" data-bind="limitedLengthText: { text: title, maxLength: 70 }, attr: { title: title }"></div>
                     </div>
