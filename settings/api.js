@@ -43,7 +43,7 @@
             headers.Authorization += (getURLParameter('token') || token);
 
             /* DEBUG */
-            var userDataPromise = $.Deferred().resolve([{ subscription: { accessType: 1, expirationDate: new Date(2016, 1, 1) } }]);
+            var userDataPromise = $.Deferred().resolve([{ data: { subscription: { accessType: 1, expirationDate: new Date(2016, 1, 1) } } }]);
             var settingsPromise = $.getJSON('../../settings.js').then(function (response) { return [{ settings: JSON.stringify(response) }]; });
             var manifestPromise = $.getJSON(manifestUrl);
             /* END_DEBUG */
@@ -134,19 +134,9 @@
         if (settingsData.settings && settingsData.settings.length > 0) {
             settings = JSON.parse(settingsData.settings);
         } else {
-            //TODO: need to be removed in next implementation
-            settings = {
-                xApi: {
-                    enabled: true,
-                    selectedLrs: 'default',
-                    lrs: {
-                        credentials: {}
-                    }
-                },
-                masteryScore: {},
-                showConfirmationPopup: true
-            };
+            settings = {};
         }
+
         return settings;
     }
 
